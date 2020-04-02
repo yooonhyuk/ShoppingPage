@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Webpage Title -->
+    <title>Pro Display XDR</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .wrap {
+            width: 500px;
+            margin: 20px auto auto auto;
+
+
+        }
+
+        .img {
+            background-image: url(https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/pro-display-gallery1-201909?wid=4000&hei=3072&fmt=jpeg&qlt=80&op_usm=0.5,0.5&.v=1574201024213);
+            background-size: cover;
+            background-position: center;
+            width: 500px;
+            height: 300px;
+        }
+
+        .order {
+            text-align: center;
+        }
+
+        .table {
+            width: 500px;
+            margin: 100px auto auto auto;
+        }
+    </style>
+
+    <script>
+        function checkPhone(p) {
+            var regExp = /^(01[0-9]{1}|02|0[3-9]{1}[0-9]{1})[-][0-9]{3,4}[-][0-9]{4}$/
+            return regExp.test(p)
+        }
+        function test() {
+            let name = $('#customerName').val()
+            let quantity = $('#quantitySelect').val()
+            let address = $('#customerAddress').val()
+            let phone = $('#customerPhone').val()
+
+            if (name == '') {
+                alert('이름을 입력해주세요')
+                $('#customerName').focus()
+                return
+            }
+            else if (quantity == '') {
+                alert('수량을 입력해주세요')
+                $('#quantitySelect').focus()
+                return
+            }
+            else if (address == '') {
+                alert('주소를 입력해주세요')
+                $('#customerAddress').focus()
+                return
+
+            }
+            else if (phone == '') {
+                alert('전화번호를 입력해주세요')
+                $('#customerPhone').focus()
+                return
+            }
+            else if (checkPhone(phone) == false) {
+                alert('전화번호 형식을 지켜주세요 000-0000-0000')
+                $('#customerPhone').focus()
+            }
+
+            
+
+
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+
+        <div class="img"></div>
+        <div class="info">
+            <h1>Pro Display XDR</h1>
+            <h5>가격: 500,000원</h5>
+            <p>
+                역대 최초의 32형 Retina 6K 디스플레이.
+                최대 1600니트 밝기. 엄청난 1,000,000:1 명암비와 초광시야각. 탁월한 정확도로 표현되는 10억 가지 이상의 색상. 그리고 전문 워크플로에 변혁을 가져다줄 다이내믹
+                레인지까지. 세계 최고의 전문가용 디스플레이, Apple Pro Display XDR을 소개합니다.
+            </p>
+
+        </div>
+        <div class="inputInfo">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">주문자 이름</span>
+                </div>
+                <input type="text" class="form-control" id="customerName" aria-describedby="basic-addon3">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">수량</label>
+                </div>
+                <select class="custom-select" id="quantitySelect">
+                    <option selected>--수량을 선택하세요--</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">주소</span>
+                </div>
+                <input type="text" class="form-control" id="customerAddress" aria-describedby="basic-addon3">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">전화번호</span>
+                </div>
+                <input type="text" class="form-control" id="customerPhone" aria-describedby="basic-addon3">
+            </div>
+            <div class="order">
+                <button type="button" class="btn btn-primary" onclick="test()">주문하기 </button>
+
+            </div>
+
+
+        </div>
+        <div class="ordersTable">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">이름</th>
+                        <th scope="col">수량</th>
+                        <th scope="col">주소</th>
+                        <th scope="col">전화번호</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-table">
+                    <tr>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
